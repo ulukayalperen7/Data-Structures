@@ -54,10 +54,11 @@ public class SinglyLinked<E> {
         size++;
     }
 
-    public void removeFirst() {
+    public E removeFirst() {
         if (head == null) {
-            return; // nothing to do
+            return null; // nothing to do
         }
+        Node<E> returning = new Node<>(head.getElement());
         if (head == tail) {
             head = null;
             tail = null;
@@ -65,6 +66,7 @@ public class SinglyLinked<E> {
             head = head.getNext();
         }
         size--;
+        return returning.getElement();
     }
 
     public void removeLast() {
