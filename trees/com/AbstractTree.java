@@ -50,6 +50,20 @@ public abstract class AbstractTree<E> implements Tree<E> {
     }
 
     // for preorder
+    public void preOrder(int index) {
+        if (index >= size || tree[index] == null) {
+            return; // Base case: out of bounds or null node
+        }
+
+        // Visit the root node
+        System.out.print(tree[index] + " ");
+
+        // Recursively visit the left child
+        preOrder(2 * index + 1);
+
+        // Recursively visit the right child
+        preOrder(2 * index + 2);
+    }
     public Iterable<Position<E>> positions() {
         return preorder();
     }
