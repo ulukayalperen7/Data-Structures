@@ -51,6 +51,20 @@ public abstract class AbstractBinaryTree<E> extends AbstractTree<E> implements B
         return inorder();
     }
 
+    /*public void inOrder(int index) {
+        if (index >= size || tree[index] == null) {
+            return; // Base case: out of bounds or null node
+        }
+
+        // Recursively visit the left child
+        inOrder(2 * index + 1);
+
+        // Visit the root node
+        System.out.print(tree[index] + " ");
+
+        // Recursively visit the right child
+        inOrder(2 * index + 2);
+    }*/
     public Iterable<Position<E>> inorder() {
         List<Position<E>> snapshot = new ArrayList<>();
         if (!isEmpty())

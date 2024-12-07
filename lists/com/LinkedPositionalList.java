@@ -1,5 +1,8 @@
 package lists.com;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LinkedPositionalList<E> implements PositionalList<E> {
     private static class ListNode<E> implements Position<E> {
         private E element;
@@ -43,7 +46,7 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
     private int size;
 
     // all methods work on O(1) running time
-    
+
     public LinkedPositionalList() {
         header = new ListNode<>(null, null, null);
         trailer = new ListNode<>(null, header, null);
@@ -158,5 +161,17 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
         node.setNext(null);
         node.setPrev(null);
         return answer;
+    }
+
+    public Iterable<Position<E>> positions() {
+        List<Position<E>> snapshot = new ArrayList<>();
+        if (!isEmpty()) {
+            Position<E> walk = first();
+            while (walk != null) {
+                snapshot.add(walk);
+                walk = after(walk);
+            }
+        }
+        return snapshot;
     }
 }

@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 public abstract class AbstractPriorityQueue<K extends Comparable<K>, V> implements PriorityQueue<K, V> {
 
-    static class PQEntry<K, V> implements Entry<K, V> {
+    public static class PQEntry<K, V> implements Entry<K, V> {
         private K key;
         private V value;
 

@@ -49,7 +49,9 @@ public abstract class AbstractTree<E> implements Tree<E> {
         return height;
     }
 
-    // for preorder
+    //    PREORDER
+    /*    basic
+
     public void preOrder(int index) {
         if (index >= size || tree[index] == null) {
             return; // Base case: out of bounds or null node
@@ -63,7 +65,8 @@ public abstract class AbstractTree<E> implements Tree<E> {
 
         // Recursively visit the right child
         preOrder(2 * index + 2);
-    }
+    }*/
+
     public Iterable<Position<E>> positions() {
         return preorder();
     }
@@ -82,7 +85,24 @@ public abstract class AbstractTree<E> implements Tree<E> {
         }
     }
 
-    // for postorder
+
+    // POSTORDER
+   /*
+    public void postOrder(int index) {
+        if (index >= size || tree[index] == null) {
+            return; // Base case: out of bounds or null node
+        }
+
+        // Recursively visit the left child
+        postOrder(2 * index + 1);
+
+        // Recursively visit the right child
+        postOrder(2 * index + 2);
+
+        // Visit the root node
+        System.out.print(tree[index] + " ");
+    }*/
+
     public Iterable<Position<E>> postorder() {
         List<Position<E>> snapshot = new ArrayList<>();
         if (!isEmpty())
@@ -97,7 +117,8 @@ public abstract class AbstractTree<E> implements Tree<E> {
         snapshot.add(p);
     }
 
-    // breadthfirst search
+    // BREADTH-FIRST
+
     public Iterable<Position<E>> breadthfirst() {
         List<Position<E>> snapshot = new ArrayList<>();
         if (!isEmpty()) {
