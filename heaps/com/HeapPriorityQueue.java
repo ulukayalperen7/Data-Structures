@@ -51,7 +51,7 @@ public class HeapPriorityQueue<K extends Comparable<K>, V> extends AbstractPrior
         return right(i) < heap.size();
     }
 
-    private void swap(int i, int j) {
+    protected void swap(int i, int j) {
         Entry<K, V> temp = heap.get(i);
         heap.set(i, heap.get(j));
         heap.set(j, temp);
@@ -115,4 +115,5 @@ public class HeapPriorityQueue<K extends Comparable<K>, V> extends AbstractPrior
         downHeap(0);
         return removed;
     }
+
 }
